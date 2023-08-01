@@ -1,0 +1,204 @@
+﻿@*
+    For more information on enabling MVC for empty projects, visit https://go.microsoft.com/fwlink/?LinkID=397860
+*@
+@{
+}
+@{
+
+    Layout = "~/Views/Shared/_LayoutOwner.cshtml";
+
+}
+@if (@TempData["SigninOwnerFlag"] != null && @TempData["SigninOwnerFlag"].ToString() == "1")
+{
+
+    Layout = "~/Views/Shared/_SignedInOwner.cshtml";
+
+}
+
+<div class="container">
+
+    <div class="booking-form" style="margin:50px 100px 50px 100px; padding-left:60px;">
+        <h3 style="color:black"> Edit Room</h3>
+        <form asp-action="EditRoom" method="post">
+
+            <div class="row">
+                <div class="col-md-6">
+                    <div class="form-group" style="width:300px; padding-top:100px">
+
+                        <span class="form-label" style="display:inline; margin-bottom:10px; ">City</span>
+                        <br>
+                        <select class="form-control" style="width:300px">
+                            <option>Assiut</option>
+                            <option>Minya</option>
+                            <option>Sohag</option>
+                        </select>
+                        <span class="select-arrow"></span>
+
+                    </div>
+                    <span class="form-label" style="display:inline; margin-bottom:10px; margin-right:10px ">Location</span>
+                    <input name="Location">
+
+                </div>
+
+                <div class="col-md-6">
+
+                    <div id="map" style="height: 300px; width:300px">
+                    </div>
+
+                </div>
+
+            </div>
+            <div class="row" id="AddImages">
+                <span class="form-label" style="font-size:20px">Room Images</span>
+                <div class="col-sm-6">
+                    <br><br>
+                    <label class="form-label" for="customFile">Main image</label>
+                    <div class="form-group">
+                        <img src="/images/d7.jpg"
+                             alt="example placeholder" style="width: 300px;" />
+                    </div>
+                    <div class="d-flex justify-content-center">
+                        <div class="btn btn-primary btn-rounded">
+
+                            <label class="form-label text-white m-1" for="customFile1">Choose file</label>
+                            <input name="MainImage" type="file" class="form-control d-none" id="customFile1" />
+                        </div>
+                    </div>
+                </div>
+                <div class="col-sm-6">
+                    <br><br>
+                    <div class="form-group" style="width:300px; margin-bottom:20px">
+                        <label class="form-label" for="customFile">Image 2</label>
+                        <input type="file" class="form-control" id="customFile" />
+                    </div>
+
+                    <div class="form-group" style="width:300px; margin-bottom:20px">
+                        <label class="form-label" for="customFile">Image 3</label>
+                        <input type="file" class="form-control" id="customFile" />
+                    </div>
+                    <div class="form-group" style="width:300px; margin-bottom:20px">
+                        <label class="form-label" for="customFile">Image 4</label>
+                        <input type="file" class="form-control" id="customFile" />
+                    </div>
+
+                </div>
+
+            </div>
+            <br><br>
+            <div class="row" id="AddDates">
+                <span class="form-label" style="font-size:20px">Avaliable dates</span>
+                <div class="col-sm-4">
+
+                    <div class="form-group">
+                        <span class="form-label">Check In</span>
+                        <input class="form-control" type="date" id="checkin" value="2020-04-13" required="">
+                    </div>
+                </div>
+                <div class="col-sm-4">
+                    <div class="form-group">
+                        <span class="form-label">Check out</span>
+                        <input class="form-control" type="date" id="checkout" value="2020-04-13" required="">
+                    </div>
+
+                </div>
+                <div class="col-sm-4">
+
+                    <label onclick="addD()" style="margin-top:33px; margin-left:15px; background-color:transparent; border-color:transparent">
+                        <svg width="1.5em" height="1.5em" viewBox="0 -0.5 21 21" version="1.1" xmlns="http://www.w3.org/2000/svg" xmlns:xlink="http://www.w3.org/1999/xlink" fill="#000000"><g id="SVGRepo_bgCarrier" stroke-width="0"></g><g id="SVGRepo_tracerCarrier" stroke-linecap="round" stroke-linejoin="round"></g><g id="SVGRepo_iconCarrier"> <title>plus_circle [#1441]</title> <desc>Created with Sketch.</desc> <defs> </defs> <g id="Page-1" stroke="none" stroke-width="1" fill="none" fill-rule="evenodd"> <g id="Dribbble-Light-Preview" transform="translate(-419.000000, -520.000000)" fill="#000000"> <g id="icons" transform="translate(56.000000, 160.000000)"> <path d="M374.55,369 L377.7,369 L377.7,371 L374.55,371 L374.55,374 L372.45,374 L372.45,371 L369.3,371 L369.3,369 L372.45,369 L372.45,366 L374.55,366 L374.55,369 Z M373.5,378 C368.86845,378 365.1,374.411 365.1,370 C365.1,365.589 368.86845,362 373.5,362 C378.13155,362 381.9,365.589 381.9,370 C381.9,374.411 378.13155,378 373.5,378 L373.5,378 Z M373.5,360 C367.70085,360 363,364.477 363,370 C363,375.523 367.70085,380 373.5,380 C379.29915,380 384,375.523 384,370 C384,364.477 379.29915,360 373.5,360 L373.5,360 Z" id="plus_circle-[#1441]"> </path> </g> </g> </g> </g></svg>
+                    </label>
+                </div>
+            </div>
+            <br><br>
+            <div class="row" id="RoomDetails">
+                <span class="form-label" style="font-size:20px">Room details</span>
+                <div class="col-sm-4">
+                    <div class="form-group">
+                        <span class="form-label">Adults</span>
+                        <select class="form-control">
+                            <option>1</option>
+                            <option>2</option>
+                            <option>3</option>
+                        </select>
+                        <span class="select-arrow"></span>
+                    </div>
+                </div>
+                <div class="col-sm-4">
+                    <div class="form-group">
+                        <span class="form-label">Room type</span>
+                        <select class="form-control">
+                            <option>Single</option>
+                            <option>Double</option>
+                            <option>Triple</option>
+                        </select>
+                        <span class="select-arrow"></span>
+                    </div>
+                </div>
+            </div>
+            <br><br>
+            <div class="row" id="Roomtype">
+                <span class="form-label" style="font-size:20px">Room type</span>
+                <div class="col-sm-12" style="display:flex; justify-content:space-evenly">
+                    <div class="form-check" style="display:inline">
+                        <input class="form-check-input" type="radio" name="flexRadioDefault1" id="flexRadioDefault1 value=" checked")"="">
+                        <label class="form-check-label" style="color:black; font-size:15px;" for="flexRadioDefault1">
+                            Girls apartment
+                        </label>
+                    </div>
+                    <div class="form-check" style="display:inline">
+                        <input class="form-check-input" type="radio" name="flexRadioDefault" id="flexRadioDefault2">
+                        <label class="form-check-label" style="color:black;font-size:15px;" for="flexRadioDefault2">
+                            Boys apartment
+                        </label>
+                    </div>
+                </div>
+
+            </div>
+            <br><br>
+            <div class="row" id="RoomFacilities">
+                <span class="form-label" style="font-size:20px">Facilities</span>
+                <div class="col-sm-6">
+                    <div class="form-check">
+                        <input class="form-check-input" type="checkbox" value="" id="flexCheckIndeterminate" style="margin-left:10px">
+                        <label class="form-check-label" style="color:black;" for="flexCheckIndeterminate">
+                            Personal bathroom included
+                        </label>
+                        <br>
+                        <input class="form-check-input" type="checkbox" value="" id="flexCheckIndeterminate" style="margin-left:10px">
+                        <label class="form-check-label" style="color:black;" for="flexCheckIndeterminate">
+                            Kitchen included
+                        </label>
+                        <br>
+                        <input class="form-check-input" type="checkbox" value="" checked="" id="flexCheckIndeterminate" style="margin-left:10px">
+                        <label class="form-check-label" style="color:black;" for="flexCheckIndeterminate">
+                            Cleaning service
+                        </label>
+
+                    </div>
+                </div>
+                <div class="col-sm-6">
+                    <div class="form-check">
+                        <input class="form-check-input" type="checkbox" value="" id="flexCheckIndeterminate" style="margin-left:10px">
+                        <label class="form-check-label" style="color:black;" for="flexCheckIndeterminate">
+                            Balcony
+                        </label>
+                        <br>
+                        <input class="form-check-input" type="checkbox" value="true" name="Ac" id="flexCheckIndeterminate" style="margin-left:10px">
+                        <label class="form-check-label" style="color:black;" for="flexCheckIndeterminate">
+                            AC included
+                        </label>
+                    </div>
+                </div>
+            </div>
+            <div class="form-btn">
+                <br>
+                <button  class="submit-btn">Edit Room</button>
+
+            </div>
+
+            <input name="__RequestVerificationToken" type="hidden" value="CfDJ8BMOE_Bs-kJHo8WeKZwfAB3H2IDDINHd6BqRCnUsY8nW8EwXX_2WWdxepHfkxjPNUbRm50-ZhiTP6X-y23QbYJ_r2YqUxEJjxeVlp6e0qGjlXNd9rh_F_QbOWs9QRJnSSumf_vW6CWXauZZ19gvXJQo">
+        </form>
+    </div>
+</div>
+
+<link rel="stylesheet" href="https://unpkg.com/leaflet@1.7.1/dist/leaflet.css" />
+<script src="https://unpkg.com/leaflet@1.7.1/dist/leaflet.js"></script>

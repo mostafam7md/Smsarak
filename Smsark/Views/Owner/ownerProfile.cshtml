@@ -1,0 +1,100 @@
+﻿@*
+    For more information on enabling MVC for empty projects, visit https://go.microsoft.com/fwlink/?LinkID=397860
+*@
+@{
+
+	Layout = "~/Views/Shared/_LayoutOwner.cshtml";
+
+}
+
+
+<section class="ftco-section">
+	<div class="container" style="padding: 0px 0px 0px 0px; ">
+
+		<div class="row justify-content-center">
+			<div class="col-lg-20">
+				<div class="wrapper img" style="background-image: url(/images/rooms.jpg);">
+					<div class="row" style="height:650px; align-content:center;justify-content:center">
+						<div class="col-md-9 col-lg-7">
+							<div class="profile-wrap w-100 p-md-5 p-4">
+								<h3 class="mb-4" style="color:black">Edit your profile</h3>
+								<div id="form-message-warning" class="mb-4"></div>
+								<div id="form-message-success" class="mb-4" style="color:black">
+								</div>
+								<form method="POST" id="profileForm" name="profileForm" class="profileForm">
+									<div class="row">
+										<div class="col-md-6">
+											<div class="form-group">
+												<label class="label" style="color:black" color for="Name">Full Name</label>
+												<input type="text" class="form-control" name="name" id="name" placeholder="Name" value="John Doe">
+											</div>
+										</div>
+										<div class="col-md-6">
+											<div class="form-group">
+												<label class="label" style="color:black" for="email">Email Address</label>
+												<input type="email" class="form-control" name="Email" id="Email" placeholder="Email" value="YourEmail.com">
+											</div>
+										</div>
+										
+										<div class="col-md-12">
+											<div class="form-group">
+												<label class="label" style="color:black" for="Password">Password</label>
+												<input type="password" class="form-control" name="Password" id="Password" placeholder="Password">
+											</div>
+										</div>
+										
+										<div class="col-md-12">
+											<div class="form-group">
+												<br>
+												<input type="submit" value="Update Account" onclick="document.getElementById('id02').style.display='block'">
+
+												<input type="submit" value="Delete Account" onclick="document.getElementById('id01').style.display='block'">
+
+												<div class="submitting"></div>
+											</div>
+										</div>
+									</div>
+								</form>
+							</div>
+						</div>
+					</div>
+				</div>
+			</div>
+		</div>
+	</div>
+	<div id="id01" class="modal">
+		<span onclick="document.getElementById('id01').style.display='none'" class="close" title="Close Modal">×</span>
+		<form class="modal-content" action="/action_page.php">
+			<div class="container">
+				<h1>Delete Account</h1>
+				<p>Are you sure you want to delete your account?</p>
+				<div class="clearfix">
+					<button type="button" onclick="document.getElementById('id01').style.display='none'" class="cancelbtn">Cancel</button>
+					<button type="button" onclick="document.getElementById('id01').style.display='none'" class="deletebtn">Delete</button>
+				</div>
+			</div>
+		</form>
+	</div>
+	<div id="id02" class="modal">
+		<span onclick="document.getElementById('id02').style.display='none'" class="close" title="Close Modal">×</span>
+		<form class="modal-content" action="/action_page.php">
+			<div class="container">
+				<h1>Update Account</h1>
+				<p>Are you sure you want to Update your account?</p>
+				<div class="clearfix">
+					<button type="button" onclick="document.getElementById('id02').style.display='none'" class="cancelbtn">Cancel</button>
+					<button type="button" onclick="document.getElementById('id02').style.display='none'" class="deletebtn">Update</button>
+				</div>
+			</div>
+		</form>
+	</div>
+	<script>
+
+		var modal = document.getElementById('id01');
+		window.onclick = function (event) {
+			if (event.target == modal) {
+				modal.style.display = "none";
+			}
+		}
+	</script>
+</section>

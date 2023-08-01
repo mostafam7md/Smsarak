@@ -1,0 +1,96 @@
+﻿@model Smsark.Models.Customer
+@if (@TempData["SigninFlag"] != null && @TempData["SigninFlag"].ToString() == "1")
+{
+
+	Layout = "~/Views/Shared/_SignedIn.cshtml";
+
+}
+
+<section class="ftco-section">
+	<div class="container" style="padding: 0px 0px 0px 0px;margin:0px 0px 0px 0px; position:relative">
+		<div class="row">
+
+			<div class="col-lg-12">
+				<div class="wrapper img" style="background-image: url(/images/rooms.jpg);">
+					<div class="row">
+						<div class="col-lg-3" style="padding:70px 100px 0px 50px">
+							<img src="/img/@Model.Photo" class="rounded-circle" width="250" height="250">
+						</div>
+						<div class="col-md-9 col-lg-7">
+							<div class="contact-wrap w-100 p-md-5 p-4">
+								<h3 class="mb-4">My Account</h3>
+								<div id="form-message-warning" class="mb-4"></div>
+
+								<form method="post" asp-controller="Customer" asp-action="CustomerProfile">
+									<div class="row">
+										<div class="col-md-6">
+											<div class="form-group">
+												<label class="label" for="Fname">First Name</label>
+												<input disabled asp-for="FName" type="text" class="form-control" name="Fname" id="Fname" placeholder="Jane">
+											</div>
+										</div>
+										<div class="col-md-6">
+											<div class="form-group">
+												<label class="label" for="LName">Last Name</label>
+												<input disabled asp-for="LName" type="text" class="form-control" name="LName" id="LName" placeholder="Doe">
+											</div>
+										</div>
+
+										<br><br>
+										<div class="col-md-6">
+
+											<div class="form-group">
+												<span class="form-label">BirthDate</span>
+												<input asp-for="BirthDate" class="form-control" type="date" value="2002-05-15" required readonly>
+											</div>
+										</div>
+										<div class="col-md-12">
+											<div class="form-group">
+												<label class="label" for="Phone">Phone Number</label>
+												<input disabled asp-for="Phone" type="tel" class="form-control" name="Phone" id="Phone" placeholder="01020202012">
+											</div>
+										</div>
+										<div class="col-md-12">
+											<div class="form-group">
+												<label class="label" for="NationalId">National ID</label>
+												<input disabled asp-for="NationalId" type="text" class="form-control" name="NationalId" id="NationalId" placeholder="302012039209">
+											</div>
+										</div>
+										<div class="col-md-12">
+											<div class="form-group">
+												<label class="label" for="Gender">Gender</label>
+												<input disabled asp-for="Gender" type="text" class="form-control" name="Gender" placeholder="Female">
+											</div>
+										</div>
+										<div class="col-md-12">
+											<div class="form-group">
+												<label class="label" for="Pin">Pin</label>
+												<input disabled asp-for="Pin" type="text" class="form-control" name="Pin" placeholder="71277">
+											</div>
+										</div>
+										<div class="col-md-12">
+											<div class="form-group">
+												<label class="label" for="CustomerEmail">Email Address</label>
+												<input disabled asp-for="CustomerEmail" type="email" class="form-control" name="CustomerEmail" id="CustomerEmail" placeholder="Janedoe@gmail.com">
+											</div>
+										</div>
+									</div>
+								</form>
+								<div class="col-md-12">
+								<form>
+										<div class="form-group">
+											<br>
+											<input type="submit" value="Edit or Delete Account" asp-action="EditCustomer" asp-controller="Customer" class="btn btn-primary">
+											<div class="submitting"></div>
+										</div>
+										<br><br>
+								</form>
+								</div>
+							</div>
+						</div>
+					</div>
+				</div>
+			</div>
+		</div>
+	</div>
+</section>

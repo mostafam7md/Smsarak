@@ -1,0 +1,95 @@
+﻿@*
+    For more information on enabling MVC for empty projects, visit https://go.microsoft.com/fwlink/?LinkID=397860
+*@
+@{
+}
+
+@{
+    ViewBag.Title = "Home Page";
+    Layout = "~/Views/Shared/_LayoutOwner.cshtml";
+
+}
+
+@{
+    ViewData["Title"] = "Home Page";
+}
+
+@if (@TempData["SigninOwnerFlag"] != null && @TempData["SigninOwnerFlag"].ToString() == "1")
+{
+
+    Layout = "~/Views/Shared/_SignedInOwner.cshtml";
+
+}
+
+@if (TempData["SignedInException"] != null)
+{
+
+    @if (TempData["SignedInException"].ToString() == "1")
+    {
+
+        <div style="text-align:center; margin-bottom:0px" class="alert alert-danger alert-dismissible fade show" role="alert">
+            <strong>Please sign in first</strong>
+            <button type="button" class="btn-close" data-bs-dismiss="alert" aria-label="Close"></button>
+
+        </div>
+
+    }
+}
+
+<div id="carouselExampleCaptions" class="carousel slide carousel-fade" data-bs-ride="carousel" style="margin:0px 0px 0px 0px; z-index:0">
+    <div class="carousel-indicators">
+        <button type="button" data-bs-target="#carouselExampleCaptions" data-bs-slide-to="0" class="active" aria-current="true" aria-label="Slide 1"></button>
+        <button type="button" data-bs-target="#carouselExampleCaptions" data-bs-slide-to="1" aria-label="Slide 2"></button>
+        <button type="button" data-bs-target="#carouselExampleCaptions" data-bs-slide-to="2" aria-label="Slide 3"></button>
+    </div>
+    <div class="carousel-inner">
+        <div class="carousel-item active" data-bs-interval="5000">
+            <img src="/images/d6.jpg" class="d-block w-100" alt="d1" style="width:2477px; height:770px">
+            <div class="carousel-caption d-none d-md-block">
+                <p id="Slogan">HouseMania</p>
+                <p>Welcome to our Housing service</p>
+            </div>
+        </div>
+        kalaaaam
+        <div class="carousel-item" data-bs-interval="5000">
+            <img src="/images/d4.jfif" class="d-block w-100" alt="d2" style="width:2477px; height:770px">
+            <div class="carousel-caption d-none d-md-block ">
+                <p id="Slogan">HouseMania</p>
+                <p>Welcome to our Housing service.</p>
+            </div>
+        </div>
+        <div class="carousel-item" data-bs-interval="5000">
+            <img src="/images/44.webp" class="d-block w-100" alt="d3" style="width:2477px; height:770px">
+            <div class="carousel-caption d-none d-md-block">
+                <p id="Slogan">HouseMania</p>
+                <p>Welcome to our Housing service</p>
+            </div>
+        </div>
+    </div>
+    <button class="carousel-control-prev" type="button" data-bs-target="#carouselExampleCaptions" data-bs-slide="prev">
+        <span class="carousel-control-prev-icon" aria-hidden="true"></span>
+        <span class="visually-hidden">Previous</span>
+    </button>
+    <button class="carousel-control-next" type="button" data-bs-target="#carouselExampleCaptions" data-bs-slide="next">
+        <span class="carousel-control-next-icon" aria-hidden="true"></span>
+        <span class="visually-hidden">Next</span>
+    </button>
+</div>
+
+<div id="aboutus" class="section textt" style=" display:flex; text-align:center; justify-content:center; align-items:center; background-image:url(/images/roomr.jpg);">
+    <div class="section-center">
+        <div class="container">
+            <div class="row">
+                <div class="col-md-5 col-md-push-4" style="">
+                    <div class="booking-cta" style="margin-top:20px">
+                        <p style="font-size:20px;padding-left:40px;">The Housing  system is a new self-contained software product which will be produced by the project team in order to overcome the problems the students and apartment owners face in traditional rental methods, the newly introduced system will provide an easy access to the system and it will have some user friendly functions with attractive interfaces, the system will give better options for reservations and options display.</p>
+                    </div>
+                </div>
+                <div class="col-md-7 col-md-pull-7">
+                    <h1><br><br><br>About us</h1>
+                </div>
+            </div>
+        </div>
+    </div>
+</div>
+

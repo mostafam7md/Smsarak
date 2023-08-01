@@ -1,0 +1,92 @@
+﻿@*
+    For more information on enabling MVC for empty projects, visit https://go.microsoft.com/fwlink/?LinkID=397860
+*@
+@{
+}
+@if (@TempData["SigninFlag"] != null && @TempData["SigninFlag"].ToString() == "1")
+{
+
+    Layout = "~/Views/Shared/_SignedIn.cshtml";
+
+}
+
+<div id="bck">
+    <h1>Rooms Reservation</h1>
+</div>
+<div id="booking" class="section" style=" display:flex; text-align:center; justify-content:center; align-items:center; ">
+    <div class="section-center">
+        <div class="container">
+            <div class="row">
+                <div class="col-md-7 col-md-push-5">
+                    <div class="booking-cta">
+                        <h1> <br><br>Make your reservation</h1>
+                        <p>
+                            If you are searching for a bed, single room or a whole apartment
+                        </p>
+                    </div>
+                </div>
+                <div class="col-md-4 col-md-pull-7">
+                    <div class="booking-form">
+                        <form>
+                            <div class="form-group">
+                                <span class="form-label">City</span>
+                                <select class="form-control">
+                                    <option>Assiut</option>
+                                    <option>Minya</option>
+                                    <option>Sohag</option>
+                                </select>
+                                <span class="select-arrow"></span>
+                            </div>
+                            <div class="row">
+                                <div class="col-sm-6">
+                                    <div class="form-group">
+                                        <span class="form-label">Check In</span>
+                                        <input class="form-control" type="date" required>
+                                    </div>
+                                </div>
+                                <div class="col-sm-6">
+                                    <div class="form-group">
+                                        <span class="form-label">Check out</span>
+                                        <input class="form-control" type="date" required>
+                                    </div>
+                                </div>
+                            </div>
+                            <div class="row">
+                                <div class="col-sm-4">
+                                    <div class="form-group">
+                                        <span class="form-label">Adults</span>
+                                        <select class="form-control">
+                                            <option>1</option>
+                                            <option>2</option>
+                                            <option>3</option>
+                                        </select>
+                                        <span class="select-arrow"></span>
+                                    </div>
+                                </div>
+                                <div class="col-sm-4">
+                                    <div class="form-group">
+                                        <span class="form-label">Room type</span>
+                                        <select class="form-control">
+                                            <option>Single</option>
+                                            <option>Double</option>
+                                            <option>Triple</option>
+                                        </select>
+                                        <span class="select-arrow"></span>
+                                    </div>
+                                </div>
+                            </div>
+                            <br>
+                            <div class="form-btn">
+                                <button class="submit-btn" asp-action="DisplayRooms">Check availability</button>
+                            </div>
+                        </form>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+</div>
+
+<div class="container">
+   
+</div>

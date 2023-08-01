@@ -1,0 +1,86 @@
+﻿@if (@TempData["SigninFlag"] != null && @TempData["SigninFlag"].ToString() == "1")
+{
+
+    Layout = "~/Views/Shared/_SignedIn.cshtml";
+
+}
+
+<div class="wrapper img" style="background-image:url(https://www.frommers.com/system/media_items/attachments/000/865/223/s980/shutterstock_404442055.jpg?1582141581);  background-size: cover;">
+    <section class="p-4 p-md-5">
+    <div class="row d-flex justify-content-center">
+        <div class="col-md-10 col-lg-8 col-xl-5">
+            <div class="card rounded-3">
+                <div class="card-body p-4">
+                    <div class="text-center mb-4">
+                        <a class="nav-link" asp-controller="Home" asp-action="payment" style="color:black"> <h2> Payment Method </h2> </a>
+
+                    </div>
+                    <form action="">
+                        <a class="nav-link" style="color:black"> <h5> Saved cards: </h5> </a>
+                        <div class="d-flex flex-row align-items-center mb-4 pb-1">
+                            <img class="img-fluid" src="https://img.icons8.com/color/48/000000/mastercard-logo.png" />
+                            <div class="flex-fill mx-3">
+                                <div class="form-outline">
+                                    <a class="nav-link" style="color:darkblue "><h6>Card Number</h6></a>
+                                    <input type="text" id="formControlLgXc" class="form-control form-control-lg" />
+                                    <label class="form-label" for="formControlLgXc">Card Number</label>
+                                </div>
+                            </div>
+                            <a class="nav-link" href="#!">Remove card</a>
+                        </div>
+
+                        <div class="d-flex flex-row align-items-center mb-4 pb-1">
+                            <img class="img-fluid" src="https://img.icons8.com/color/48/000000/visa.png" />
+                            <div class="flex-fill mx-3">
+                                <div class="form-outline">
+                                    <a class="nav-link" style="color:darkblue "><h6>Card Number</h6></a>
+                                    <input type="text" id="formControlLgXs" class="form-control form-control-lg" />
+                                    <label class="form-label" for="formControlLgXs">Card Number</label>
+                                </div>
+                            </div>
+                            <a class="nav-link" href="#!">Remove card</a>
+                        </div>
+                        <a class="nav-link" style="color:black"> <h5> Add new card: </h5> </a>
+                        <a class="nav-link" style="color:darkblue "> <h6>Cardholder's Name</h6></a>
+                        <div class="form-outline mb-4">
+                            <input type="text" id="formControlLgXsd" class="form-control form-control-lg"
+                                   placeholder="" />
+
+
+                        </div>
+                        <div class="row mb-4">
+                            <div class="col-7">
+                                <div class="form-outline">
+                                    <a class="nav-link" style="color:darkblue "><h6>Card Number</h6></a>
+                                    <input type="text" id="formControlLgXM" class="form-control form-control-lg"
+                                           placeholder="" />
+
+
+                                </div>
+                            </div>
+                            <div class="col-3">
+                                <div class="form-outline">
+                                    <a class="nav-link" style="color:darkblue "> Expire </a>
+                                    <input type="password" id="formControlLgExpk" class="form-control form-control-lg"
+                                           placeholder="MM/YYYY" />
+                                    <label class="form-label" for="formControlLgExpk">Expire</label>
+                                </div>
+                            </div>
+                            <div class="col-2">
+                                <div class="form-outline">
+                                    <a class="nav-link" style="color:darkblue "> Cvv </a>
+                                    <input type="password" id="formControlLgcvv" class="form-control form-control-lg"
+                                           placeholder="Cvv" />
+                                    <label class="form-label" for="formControlLgcvv">Cvv</label>
+                                </div>
+                            </div>
+                        </div>
+
+                        <button class="btn btn-success btn-lg btn-block">Add card</button>
+                    </form>
+                </div>
+            </div>
+        </div>
+    </div>
+</section>
+</div>

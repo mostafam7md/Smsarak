@@ -1,0 +1,121 @@
+﻿@model Smsark.Models.Customer
+<section class="ftco-section">
+	<div class="container" style="padding: 0px 0px 0px 0px;margin:0px 0px 0px 0px; ">
+		<div class="row justify-content-center">
+			<div class="col-lg-20">
+				<div class="wrapper img" style="background-image: url(/images/rooms.jpg);">
+					<div class="row" style=" align-content:center;justify-content:center">
+						<div class="col-md-9 col-lg-7">
+							<div class="contact-wrap w-100 p-md-5 p-4">
+								<h3 class="mb-4">Sign Up!</h3>
+								<div id="form-message-warning" class="mb-4"></div>
+
+								<form method="post" asp-action="CustomerRegister" asp-controller="Customer" enctype="multipart/form-data">
+									<div class="row">
+										<div class="col-md-6">
+											<div class="form-group">
+												<label class="label" for="Fname">First Name</label>
+												<input asp-for="FName" type="text" class="form-control" name="Fname" id="Fname" placeholder="First Name">
+											</div>
+										</div>
+										<div class="col-md-6">
+											<div class="form-group">
+												<label class="label" for="LName">Last Name</label>
+												<input asp-for="LName" type="text" class="form-control" name="LName" id="LName" placeholder="Last Name">
+											</div>
+										</div>
+										<div class="col-md-6">
+											<div class="form-group">
+												<label asp-for="Photo" class="control-label"></label>
+												<input asp-for="Photo" class="form-control" type="file" name="img_file" />
+												<span asp-validation-for="Photo" class="text-danger"></span>
+											</div>
+										</div>
+										<br><br>
+										<div class="col-md-6">
+												<div class="form-group">
+													<span class="form-label">BirthDate</span>
+													<input asp-for="BirthDate" class="form-control" type="date" value="12/4/2020" required>
+												</div>
+										</div>
+										<div class="col-md-12">
+											<div class="form-group">
+												<label class="label" for="Phone">Phone Number</label>
+												<input asp-for="Phone" type="tel" class="form-control" name="Phone" id="Phone" placeholder="Phone Number">
+											</div>
+										</div>
+										<div class="col-md-12">
+											<div class="form-group">
+												<label class="label" for="NationalId">National ID</label>
+												<input asp-for="NationalId" type="text" class="form-control" name="NationalId" id="NationalId" placeholder="National ID">
+											</div>
+										</div>
+										<div class="col-md-12">
+											<div class="form-group">
+												<label class="label" for="Gender">Gender</label>
+												<select name="Gender" class="form-control" style="width:300px">
+													<option selected disabled></option>
+													<option>Male</option>
+													<option>Female</option>
+
+												</select>
+											</div>
+										<div class="col-md-12">
+											<div class="form-group">
+												<label class="label" for="Pin">Pin</label>
+												<input asp-for="Pin" type="text" class="form-control" name="Pin" placeholder="Pin">
+											</div>
+										</div>
+										<div class="col-md-12">
+											<div class="form-group">
+												<label class="label" for="CustomerEmail">Email Address</label>
+												<input asp-for="CustomerEmail" type="email" class="form-control" name="CustomerEmail" id="CustomerEmail" placeholder="Email">
+											</div>
+										</div>
+										<div class="col-md-12">
+											<div class="form-group">
+												<label class="label" for="Password">Password</label>
+												<input asp-for = "Password" type="Password" class="form-control" name="Password" id="Password" placeholder="Password">
+											</div>
+										</div>
+
+										<div class="col-md-12">
+											<div class="form-group">
+												<label class="label" for="AccountType">AccountType</label>
+												<select name="AccoutType" class="form-control" style="width:300px">
+													<option>Customer</option>
+													<option>Owner</option>
+				
+												</select>
+											</div>
+										</div>
+
+
+										<div class="col-md-12">
+											<div class="form-group">
+												<br>
+												<input  type="submit" value="submit" class="btn btn-primary">
+												<div class="submitting"></div>
+											</div>
+										</div>
+
+										
+											<br>
+									</div>
+								
+								</form>
+								<br>
+							
+								<a href="/Owner/Register"><input type="button" value="Continue as an owner" class="btn btn-primary" style="background-color:darkcyan"></a>
+								<p>
+								If you have an account
+									<a href="/Home/signin" style="background-color: transparent;color: aqua;font-size: 15px; display:inline"> Sign in </a>
+								</p>
+							</div>
+						</div>
+					</div>
+				</div>
+			</div>
+		</div>
+	</div>
+</section>

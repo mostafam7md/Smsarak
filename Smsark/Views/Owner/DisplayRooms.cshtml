@@ -1,0 +1,183 @@
+﻿@*
+    For more information on enabling MVC for empty projects, visit https://go.microsoft.com/fwlink/?LinkID=397860
+*@
+@{
+}
+
+
+@{
+
+    Layout = "~/Views/Shared/_LayoutOwner.cshtml";
+
+}
+@if (@TempData["SigninOwnerFlag"] != null && @TempData["SigninOwnerFlag"].ToString() == "1")
+{
+
+    Layout = "~/Views/Shared/_SignedInOwner.cshtml";
+
+}
+@if (TempData["flag"] != null)
+{
+    
+    @if (TempData["flag"].ToString() == "1")
+    {
+
+        <div style="text-align:center" class="alert alert-success alert-dismissible fade show" role="alert">
+            <strong>Room was added successfully</strong>
+            <button type="button" class="btn-close" data-bs-dismiss="alert" aria-label="Close"></button>
+
+        </div>
+        TempData["flag"] = "0";
+    }
+}
+@if (TempData["EditFlag"] != null)
+{
+    @if (TempData["EditFlag"].ToString() == "1")
+    {
+
+        <div style="text-align:center" class="alert alert-success alert-dismissible fade show" role="alert">
+            <strong>Room was updated successfully</strong>
+            <button type="button" class="btn-close" data-bs-dismiss="alert" aria-label="Close"></button>
+
+        </div>
+        TempData["EditFlag"] = "0";
+    }
+}
+<div id="" style="margin:50px 100px 50px 100px">
+      
+    <div style="color:#609ea2; display:flex; font-family:sans-serif;background-color:whitesmoke; ">
+
+        <ul style=" width:100%; justify-content:center;list-style:none;margin:0px 0px 0px 0px; padding:0px 0px 0px 0px; ">
+
+            <div style="color:black">
+                <br>
+                <p style="display: inline;text-align:left ">&nbsp; You have 3 properties</p>
+                <span style="float:right; display: inline;">
+                    <label style="text-align:right">Sort By</label>
+                    <select style="text-align:right">
+                        <option selected> </option>
+                        <option>Price Low to High</option>
+                        <option>Price High to Low</option>
+                    </select>
+                </span>
+            </div>
+
+
+
+
+            <li style="">
+                <div class="containLi" style=" color:darkslategrey;  border: lightgray solid 0.5px; width:100%;margin:10px 0px 10px 0px; padding:20px 20px 20px 20px; border-radius: 25px; background-color:white; box-shadow:1px 1px lightgray ">
+                    <div>
+                        <h3 style="padding-left:10px"> 1 single bedroom </h3>
+                        <div class="form-group">
+                            <span class="form-label1">Location: </span>
+                            <span class="form-label">Assiut</span>
+                        </div>
+                        <div class="form-group">
+                            <span class="form-label1">Specialties: </span>
+                            <span class="form-label">3 Bathrooms</span>
+                        </div>
+                        <div style="overflow-wrap: break-word;">
+                            <span class="form-label1">Short Description: </span>
+                            <span class="form-label" style=" word-wrap: normal;overflow-wrap: break-word;"> The room is Located on the Gomhoryia street, in a 7 stories windows. It's a five minutes walk from a hospital, a supermarket, and a pharmacy</span>
+                        </div>
+                        <br>
+                        <div>
+                            <span class="form-label1">Price: </span>
+                            <span class="form-label" style=" word-wrap: normal;overflow-wrap: break-word;">70 Egyptain pounds per night</span>
+                        </div>
+
+                        <div style="padding-left:10px">
+                            <br>
+                            <button style="background-color:#609ea2;" class="btn btn-primary" ="button" value="Check" onclick="location.href='@Url.Action("EditRooms", "Owner")'">Edit room </button>
+                            <button style="background-color:darkred;border-block-color:transparent; border-color:transparent" class="btn btn-primary" ="button" value="Check" onclick="location.href='@Url.Action("Room", "Home")'">Delete room </button>
+
+                        </div>
+                    </div>
+                    <div style=" text-align:right;display:flex; justify-content:flex-end; padding:20px 20px 40px 0px;">
+                        <img src="/images/d6.jpg" alt="this is an image" style="float:right;width:250px;height:250px;">
+                    </div>
+                </div>
+            </li>
+            <br>
+
+
+            <li style="">
+                <div class="containLi" style="color:darkslategrey;  border: lightgray solid 0.5px; width:100%;margin:10px 0px 10px 0px; padding:20px 20px 20px 20px; border-radius: 25px; background-color:white; box-shadow:1px 1px lightgray">
+                    <div>
+                        <h3 style="padding-left:10px"> 1 Double bedroom </h3>
+                        <div class="form-group">
+                            <span class="form-label1">Location: </span>
+                            <span class="form-label">Assiut</span>
+                        </div>
+                        <div class="form-group">
+                            <span class="form-label1">Specialties: </span>
+                            <span class="form-label">3 Bathrooms</span>
+                        </div>
+                        <div style="overflow-wrap: break-word;">
+                            <span class="form-label1">Short Description: </span>
+                            <span class="form-label" style=" word-wrap: normal;overflow-wrap: break-word;"> The room is Located on the Gomhoryia street, in a 7 stories windows. It's a five minutes walk from a hospital, a supermarket, and a pharmacy</span>
+                        </div>
+                        <br>
+                        <div>
+                            <span class="form-label1">Price: </span>
+                            <span class="form-label" style=" word-wrap: normal;overflow-wrap: break-word;">70 Egyptain pounds per night</span>
+                        </div>
+
+                        <div style="padding-left:10px">
+                            <br>
+                            <button style="background-color:#609ea2" class="btn btn-primary" ="button" value="Check" onclick="location.href='@Url.Action("EditRooms", "Owner")'">Edit room </button>
+                            <button style="background-color:darkred;border-block-color:transparent; border-color:transparent" class="btn btn-primary" ="button" value="Check" onclick="location.href='@Url.Action("Room", "Home")'">Delete room </button>
+                        </div>
+                    </div>
+                    <div style=" text-align:right;display:flex; justify-content:flex-end; padding:20px 20px 40px 0px;">
+                        <img src="/images/d5.jpg" alt="this is an image" style="float:right;width:250px;height:250px;">
+                    </div>
+                </div>
+            </li>
+            <br>
+
+            <li style="">
+                <div class="containLi" style="color:darkslategrey;  border: lightgray solid 0.5px; width:100%;margin:10px 0px 10px 0px; padding:20px 20px 20px 20px; border-radius: 25px; background-color:white; box-shadow:1px 1px lightgray">
+                    <div>
+                        <h3 style="padding-left:10px"> 1 Triple bedroom </h3>
+                        <div class="form-group">
+                            <span class="form-label1">Location: </span>
+                            <span class="form-label">Assiut</span>
+                        </div>
+                        <div class="form-group">
+                            <span class="form-label1">Specialties: </span>
+                            <span class="form-label">3 Bathrooms</span>
+                        </div>
+                        <div style="overflow-wrap: break-word;">
+    k                        <span class="form-label1">Short Description: </span>
+                            <span class="form-label" style=" word-wrap: normal;overflow-wrap: break-word;"> The room is Located on the Gomhoryia street, in a 7 stories windows. It's a five minutes walk from a hospital, a supermarket, and a pharmacy</span>
+                        </div>
+                        <br>
+                        <div>
+                            <span class="form-label1">Price: </span>
+                            <span class="form-label" style=" word-wrap: normal;overflow-wrap: break-word;">70 Egyptain pounds per night</span>
+                        </div>
+
+                        <div style="padding-left:10px">
+                            <br>
+                            <button style="background-color:#609ea2" class="btn btn-primary" ="button" value="Check" onclick="location.href='@Url.Action("EditRooms", "Owner")'">Edit room </button>
+                            <button style="background-color:darkred;border-block-color:transparent; border-color:transparent" class="btn btn-primary" ="button" value="Check" onclick="location.href='@Url.Action("Room", "Home")'">Delete room </button>
+                        </div>
+                    </div>
+                    <div style=" text-align:right;display:flex; justify-content:flex-end; padding:20px 20px 40px 0px;">
+                        <img src="/images/d2.jfif" alt="this is an image" style="float:right;width:250px;height:250px;">
+                    </div>
+                </div>
+            </li>
+            <br>
+            <button style="background-color:#609ea2;position:absolute; width: 175px; margin-left:72%" class="btn btn-primary" ="button" value="Check" onclick="location.href='@Url.Action("AddRooms", "Owner")'">Add rooms </button>
+
+        </ul>
+
+    </div>
+
+</div>
+
+
+

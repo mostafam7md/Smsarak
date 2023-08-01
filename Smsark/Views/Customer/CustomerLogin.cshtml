@@ -1,0 +1,88 @@
+﻿ @model Smsark.Models.Customer
+
+ @if (TempData["Wrong"] != null)
+{
+
+	@if (TempData["Wrong"].ToString() == "1")
+	{
+
+		<div style="text-align:center; margin-bottom:0px" class="alert alert-danger alert-dismissible fade show" role="alert">
+			<strong>Wrong Email or password</strong>
+			<button type="button" class="btn-close" data-bs-dismiss="alert" aria-label="Close"></button>
+
+		</div>
+
+	}
+}
+@if (TempData["Successful"] != null)
+{
+
+	@if (TempData["Successful"].ToString() == "1")
+	{
+
+		<div style="text-align:center; margin-bottom:0px" class="alert alert-success alert-dismissible fade show" role="alert">
+			<strong>You have registered Succesfully</strong>
+			<button type="button" class="btn-close" data-bs-dismiss="alert" aria-label="Close"></button>
+
+		</div>
+
+	}
+}
+<div class="row justify-content-center" style="margin-top:0px">
+	<div class="col-lg-20">
+		<div class="wrapper img" style="background-image: url(/images/rooms.jpg);">
+			<div class="row" style="height:650px; align-content:center;justify-content:center">
+				<div class="col-md-9 col-lg-7">
+					<div class="contact-wrap w-100 p-md-5 p-4">
+						<h3 class="mb-4">Sign In</h3>
+						<div id="form-message-warning" class="mb-4"></div>
+						<div id="form-message-success" class="mb-4">
+							<!-- Show success message here -->
+						</div>
+						<form method="POST"  asp-action="CustomerLogin" asp-controller="Customer" id="signInForm" name="signInForm" class="signInForm">
+							<div class="row">
+								<div class="col-md-12">
+									<div class="form-group">
+										<label class="label" for="CustomerEmail">Email Address</label>
+										<input asp-for ="CustomerEmail" type="email" class="form-control" name="CustomerEmail" id="email" value="@TempData["SigninEmail"]" placeholder="Email">
+									</div>
+								</div>
+								<div class="col-md-12">
+									<div class="form-group">
+										<label class="label" for="Password">Password</label>
+										<input type="password" asp-for="Password" class="form-control" name="Password" value="@TempData["SigninPassword"]" id="password" placeholder="Password">
+									</div>
+								</div>
+								<div class="col-md-12">
+									<div class="form-group">
+										<br>
+										<input type="submit" value="Sign In" asp-action="CustomerLogin" asp-controller="Customer" class="btn btn-primary"  >
+										<div class="submitting"></div>
+										<br>
+										<a href="/Owner/signin"><input type="button" value="Continue as an owner"  class="btn btn-primary" style="background-color:darkcyan"></a>
+										<div class="Continue As Owner"></div>
+										<br />
+										<p>
+											If you don't have  an account
+											<a href="/Home/signup" style="background-color: transparent;color: aqua;font-size: 15px;"> Sign Up </a>
+										</p>
+									</div>
+								</div>
+							</div>
+							<input name="__RequestVerificationToken" type="hidden" value="CfDJ8EayB7_uq1NLt1_xGmDpENNEnpRWIxruuOoISESBeMc1DIISpUkTe780uI0B47sulkpsm06t93NXG2zYZ4lEahX96qj8cMisCEnnlc7_WYe-BJHSLZN5oGo6S4nu8sKan01Z85n8_-iCwCLy05eGbAE" />
+						</form>
+					</div>
+				</div>
+			</div>
+		</div>
+	</div>
+</div>
+
+
+
+
+
+											
+
+
+

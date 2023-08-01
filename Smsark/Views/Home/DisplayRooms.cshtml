@@ -1,0 +1,244 @@
+﻿@*
+    For more information on enabling MVC for empty projects, visit https://go.microsoft.com/fwlink/?LinkID=397860
+*@
+@{
+}
+@if (@TempData["SigninFlag"] != null && @TempData["SigninFlag"].ToString() == "1")
+{
+
+        Layout = "~/Views/Shared/_SignedIn.cshtml";
+ 
+}
+
+
+
+
+<div id="containn">
+
+
+       <div style="background-color:whitesmoke"> 
+           <br>
+            <div class="booking-form" style="width:440px;">
+        <form asp-action="DisplayRooms" >
+            <div class="form-group">
+                <span class="form-label">City</span>
+                <select class="form-control">
+                    <option>Assiut</option>
+                    <option>Minya</option>
+                    <option>Sohag</option>
+                </select>
+                <span class="select-arrow"></span>
+            </div>
+            <div class="row">
+                <div class="col-sm-6">
+                    <div class="form-group">
+                        <span class="form-label">Check In</span>
+                        <input class="form-control" type="date" value="12/4/2020" required>
+                    </div>
+                </div>
+                <div class="col-sm-6">
+                    <div class="form-group">
+                        <span class="form-label">Check out</span>
+                        <input class="form-control" type="date" value="12" required>
+
+                    </div>
+                </div>
+            </div>
+            <div class="row">
+                <div class="col-sm-4">
+                    <div class="form-group">
+                        <span class="form-label">Adults</span>
+                        <select class="form-control">
+                            <option>1</option>
+                            <option>2</option>
+                            <option>3</option>
+                        </select>
+                        <span class="select-arrow"></span>
+                    </div>
+                </div>
+                <div class="col-sm-4">
+                    <div class="form-group">
+                        <span class="form-label">Room type</span>
+                        <select class="form-control">
+                            <option>Single</option>
+                            <option>Double</option>
+                            <option>Triple</option>
+                        </select>
+                        <span class="select-arrow"></span>
+                    </div>
+                </div>
+                </div>
+                <span class="form-label">Preferences</span>
+                <br><br>
+                <div class="col-sm-15" style="display:flex; justify-content:space-evenly">
+                    <div class="form-check" style="display:inline">
+                        <input class="form-check-input" type="radio" name="flexRadioDefault1" id="flexRadioDefault1 value=" checked")">
+                        <label class="form-check-label" style="color:black; font-size:15px;" for="flexRadioDefault1">
+                            Girls apartment
+                        </label>
+                    </div>
+                    <div class="form-check" style="display:inline">
+                        <input class="form-check-input" type="radio" name="flexRadioDefault" id="flexRadioDefault2">
+                        <label class="form-check-label" style="color:black;font-size:15px;" for="flexRadioDefault2">
+                            Boys apartment
+                        </label>
+                    </div>
+                </div>
+                <br>
+                <div class="form-check">
+                    <input class="form-check-input" type="checkbox" value="" id="flexCheckIndeterminate" style="margin-left:10px">
+                    <label class="form-check-label" style="color:black;" for="flexCheckIndeterminate">
+                        Personal bathroom included
+                    </label>
+                    <br>
+                    <input class="form-check-input" type="checkbox" value="" id="flexCheckIndeterminate" style="margin-left:10px">
+                    <label class="form-check-label" style="color:black;" for="flexCheckIndeterminate">
+                        Kitchen included
+                    </label>
+                    <br>
+                    <input class="form-check-input" type="checkbox" value="" checked id="flexCheckIndeterminate" style="margin-left:10px">
+                    <label class="form-check-label" style="color:black;" for="flexCheckIndeterminate">
+                        Cleaning service
+                    </label>
+                    <br>
+                    <input class="form-check-input" type="checkbox" value="true" name="Ac" id="flexCheckIndeterminate" style="margin-left:10px">
+                    <label class="form-check-label" style="color:black;" for="flexCheckIndeterminate">
+                        AC included
+                    </label>
+                </div>
+                <div class="form-btn">
+                    <br>
+                    <button class="submit-btn" asp-action="DisplayRooms">Check availability</button>
+                </div>
+
+        </form>
+        </div>
+        </div>
+    <div style="color:#609ea2; display:flex; font-family:sans-serif;background-color:whitesmoke; ">
+
+        <ul style=" width:100%; justify-content:center;list-style:none;margin:0px 0px 0px 0px; padding:0px 0px 0px 0px; ">
+        
+            <div style="color:black">
+                <br>
+            <p style="display: inline;text-align:left ">&nbsp; 2 properties were found near you</p>
+            <span  style="float:right; display: inline;">
+                <label style="text-align:right">Sort By</label>
+                    <select style="text-align:right">
+                    <option selected> </option>
+                    <option>Price Low to High</option>
+                    <option>Price High to Low</option>
+                </select>
+            </span>
+            </div>
+
+
+           
+
+            <li style="" >
+                <div class="containLi" style=" color:darkslategrey;  border: lightgray solid 0.5px; width:100%;margin:10px 0px 10px 0px; padding:20px 20px 20px 20px; border-radius: 25px; background-color:white; box-shadow:1px 1px lightgray ">
+                    <div>
+                        <h3 style="padding-left:10px"> 1 single bedroom </h3>
+                        <div class="form-group">
+                            <span class="form-label1">Location: </span>
+                            <span class="form-label">Assiut</span>
+                        </div>
+                        <div class="form-group">
+                            <span class="form-label1">Specialties: </span>
+                            <span class="form-label">3 Bathrooms</span>
+                        </div>
+                        <div style="overflow-wrap: break-word;">
+                            <span class="form-label1">Short Description: </span>
+                            <span class="form-label" style=" word-wrap: normal;overflow-wrap: break-word;"> The room is Located on the Gomhoryia street, in a 7 stories windows. It's a five minutes walk from a hospital, a supermarket, and a pharmacy</span>
+                        </div>
+                        <br>
+                        <div>
+                            <span class="form-label1">Price: </span>
+                            <span class="form-label" style=" word-wrap: normal;overflow-wrap: break-word;">70 Egyptain pounds per night</span>
+                        </div>
+
+                        <div style="padding-left:10px">
+                            <br>
+                            <button style="background-color:#609ea2" class="btn btn-primary" ="button" value="Check" onclick="location.href='@Url.Action("Room", "Home")'">Check avaliablity </button>
+                        </div>
+                    </div>
+                    <div style=" text-align:right;display:flex; justify-content:flex-end; padding:20px 20px 40px 0px;">
+                        <img src="/images/d6.jpg" alt="this is an image" style="float:right;width:250px;height:250px;">
+                    </div>
+                </div>
+            </li>
+            <br>
+
+
+            <li style="">
+                <div class="containLi" style="color:darkslategrey;  border: lightgray solid 0.5px; width:100%;margin:10px 0px 10px 0px; padding:20px 20px 20px 20px; border-radius: 25px; background-color:white; box-shadow:1px 1px lightgray">
+                    <div>
+                        <h3 style="padding-left:10px"> 1 Double bedroom </h3>
+                        <div class="form-group">
+                            <span class="form-label1">Location: </span>
+                            <span class="form-label">Assiut</span>
+                        </div>
+                        <div class="form-group">
+                            <span class="form-label1">Specialties: </span>
+                            <span class="form-label">3 Bathrooms</span>
+                        </div>
+                        <div style="overflow-wrap: break-word;">
+                            <span class="form-label1">Short Description: </span>
+                            <span class="form-label" style=" word-wrap: normal;overflow-wrap: break-word;"> The room is Located on the Gomhoryia street, in a 7 stories windows. It's a five minutes walk from a hospital, a supermarket, and a pharmacy</span>
+                        </div>
+                        <br>
+                        <div>
+                            <span class="form-label1">Price: </span>
+                            <span class="form-label" style=" word-wrap: normal;overflow-wrap: break-word;">70 Egyptain pounds per night</span>
+                        </div>
+
+                        <div style="padding-left:10px">
+                            <br>
+                            <button style="background-color:#609ea2" class="btn btn-primary" ="button" value="Check" onclick="location.href='@Url.Action("Room", "Home")'">Check avaliablity </button>
+                        </div>
+                    </div>
+                    <div style=" text-align:right;display:flex; justify-content:flex-end; padding:20px 20px 40px 0px;">
+                        <img src="/images/d5.jpg" alt="this is an image" style="float:right;width:250px;height:250px;">
+                    </div>
+                </div>
+            </li>
+            <br>
+
+            <li style="">
+                <div class="containLi" style="color:darkslategrey;  border: lightgray solid 0.5px; width:100%;margin:10px 0px 10px 0px; padding:20px 20px 20px 20px; border-radius: 25px; background-color:white; box-shadow:1px 1px lightgray">
+                    <div>
+                        <h3 style="padding-left:10px"> 1 Triple bedroom </h3>
+                        <div class="form-group">
+                            <span class="form-label1">Location: </span>
+                            <span class="form-label">Assiut</span>
+                        </div>
+                        <div class="form-group">
+                            <span class="form-label1">Specialties: </span>
+                            <span class="form-label">3 Bathrooms</span>
+                        </div>
+                        <div style="overflow-wrap: break-word;">
+                            <span class="form-label1">Short Description: </span>
+                            <span class="form-label" style=" word-wrap: normal;overflow-wrap: break-word;"> The room is Located on the Gomhoryia street, in a 7 stories windows. It's a five minutes walk from a hospital, a supermarket, and a pharmacy</span>
+                        </div>
+                        <br>
+                        <div>
+                            <span class="form-label1">Price: </span>
+                            <span class="form-label" style=" word-wrap: normal;overflow-wrap: break-word;">70 Egyptain pounds per night</span>
+                        </div>
+
+                        <div style="padding-left:10px">
+                            <br>
+                            <button style="background-color:#609ea2" class="btn btn-primary" ="button" value="Check" onclick="location.href='@Url.Action("Room", "Home")'">Check avaliablity </button>
+                        </div>
+                    </div>
+                    <div style=" text-align:right;display:flex; justify-content:flex-end; padding:20px 20px 40px 0px;">
+                        <img src="/images/d2.jfif" alt="this is an image" style="float:right;width:250px;height:250px;">
+                    </div>
+                </div>
+            </li>
+            <br>
+
+        </ul>
+    </div>
+
+</div>
+

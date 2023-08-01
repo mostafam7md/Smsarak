@@ -1,0 +1,143 @@
+﻿@model Smsark.Models.Customer
+@if (@TempData["SigninFlag"] != null && @TempData["SigninFlag"].ToString() == "1")
+{
+
+	Layout = "~/Views/Shared/_SignedIn.cshtml";
+
+}
+
+@if (TempData["upd"] != null)
+{
+
+	@if (TempData["upd"].ToString() == "1")
+	{
+
+		<div style="text-align:center; margin-bottom:0px" class="alert alert-success alert-dismissible fade show" role="alert">
+			<strong>Account was updated successfully</strong>
+			<button type="button" class="btn-close" data-bs-dismiss="alert" aria-label="Close"></button>
+
+		</div>
+
+	}
+}
+
+<section class="ftco-section">
+	<div class="container" style="padding: 0px 0px 0px 0px; ">
+
+		<div class="row justify-content-center">
+			<div class="col-lg-20">
+				<div class="wrapper img" style="background-image: url(/images/rooms.jpg);">
+					<div class="row" style="height:650px; align-content:center;justify-content:center">
+						<div class="col-md-9 col-lg-7">
+							<div class="profile-wrap w-100 p-md-5 p-4">
+								<h3 class="mb-4" style="color:black">Edit your profile</h3>
+								<div id="form-message-warning" class="mb-4"></div>
+								<div id="form-message-success" class="mb-4" style="color:black">
+									Your profile has been updated successfully!
+								</div>
+								<form method="post" asp-controller="Customer" asp-action="EditCustomer" enctype="multipart/form-data">
+									<div class="row">
+										<div class="col-md-6">
+											<div class="form-group">
+												<label class="label" style="color:black" color for="FName">Full Name</label>
+												<input asp-for="FName" type="text" class="form-control" name="Fname" id="Fname" placeholder="First Name">
+											</div>
+										</div>
+										<div class="col-md-6">
+											<div class="form-group">
+												<label class="label" style="color:black" for="LName">Last Name</label>
+												<input asp-for="LName" type="text" class="form-control" name="LName" id="LName" placeholder="Last Name">
+											</div>
+										</div>
+										<div class="col-md-6">
+											<div class="form-group">
+												<label class="label" for="Photo" id="Photo">Photo</label>
+												<input  class="form-control" type="file" id="Photo" name="img_file" />
+											</div>
+										</div>
+										<div class="col-md-6">
+											<div class="form-group">
+												<span class="form-label">BirthDate</span>
+												<input asp-for="BirthDate" class="form-control" type="date" value="12/4/2020" required>
+											</div>
+										</div>
+										<div class="col-md-12">
+											<div class="form-group">
+												<label class="label" for="Phone">Phone Number</label>
+												<input asp-for="Phone" type="tel" class="form-control" name="Phone" id="Phone" placeholder="Phone Number">
+											</div>
+										</div>
+										<div class="col-md-12">
+											<div class="form-group">
+												<label class="label" for="Pin">Pin</label>
+												<input asp-for="Pin" type="text" class="form-control" name="Pin" placeholder="Pin">
+											</div>
+										</div>
+										<div class="col-md-12">
+											<div class="form-group">
+												<label class="label" for="CustomerEmail">Email Address</label>
+												<input asp-for="CustomerEmail" type="email" class="form-control" name="CustomerEmail" id="CustomerEmail" placeholder="Email">
+											</div>
+										</div>
+										<div class="col-md-12">
+											<div class="form-group">
+												<label class="label" for="Password">Password</label>
+												<input asp-for="Password" type="Password" class="form-control" name="Password" id="Password" placeholder="Password">
+											</div>
+										</div>
+										<div class="col-md-12">
+											<div class="form-group">
+												<br>
+												<input type="button" class="submit-btn btnn" value="Update Account" onclick="document.getElementById('id02').style.display='block'">
+												<input type="button" class="submit-btn btnn" value="Delete Account" onclick="document.getElementById('id01').style.display='block'">
+
+											</div>
+										</div>
+									</div>
+									<div id="id02" class="modal">
+										<span onclick="document.getElementById('id02').style.display='none'" class="close" title="Close Modal">×</span>
+										<div class="container modal-content">
+											<h1>Update Account</h1>
+											<p>Are you sure you want to Update your account?</p>
+											<div class="clearfix">
+												<button type="button" onclick="document.getElementById('id02').style.display='none'" class="cancelbtn">Cancel</button>
+												<input type="submit" value="Update" class="cancelbtn" style="background-color:darkcyan; border-radius:0px;padding-top:15px; margin-top:8px; padding-bottom:13px; color:black">
+
+											</div>
+										</div>
+									
+								</form>
+							</div>
+						</div>
+					</div>
+				</div>
+			</div>
+		</div>
+	</div>
+	<form>
+	<div id="id01" class="modal">
+		<span onclick="document.getElementById('id01').style.display='none'" class="close" title="Close Modal">×</span>
+		<div class="modal-content" action="/action_page.php">
+			<div class="container">
+				<h1>Delete Account</h1>
+				<p>Are you sure you want to delete your account?</p>
+				<div class="clearfix">
+						<button type="button" onclick="document.getElementById('id01').style.display='none'" class="cancelbtn">Cancel</button>
+						<input type="submit" asp-action="DeleteAccount" asp-controller="Customer" value="Delete" class="deletebtn" style="background-color:red; border-radius:0px;padding-top:15px; margin-top:8px; padding-bottom:13px; color:black">
+				</div>
+			</div>
+		</div>
+	</div>
+	</form>
+	
+
+	<script>
+
+		var modal = document.getElementById('id01');
+		window.onclick = function (event) {
+			if (event.target == modal) {
+				modal.style.display = "none";
+			}
+		}
+	</script>
+</section>

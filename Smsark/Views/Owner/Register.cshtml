@@ -1,0 +1,95 @@
+﻿@{
+
+    Layout = "~/Views/Shared/_LayoutOwner.cshtml";
+
+}
+
+@model Smsark.Models.Owner
+<section class="ftco-section">
+	<div class="container" style="padding: 0px 0px 0px 0px;margin:0px 0px 0px 0px; ">
+		<div class="row justify-content-center">
+			<div class="col-lg-20">
+				<div class="wrapper img" style="background-image: url(/images/rooms.jpg);">
+					<div class="row" style=" align-content:center;justify-content:center">
+						<div class="col-md-9 col-lg-7">
+							<div class="contact-wrap w-100 p-md-5 p-4">
+								<h3 class="mb-4">Sign Up as an owner</h3>
+								<div id="form-message-warning" class="mb-4"></div>
+
+								<form method="post" asp-controller="Owner" asp-action="Register" enctype="multipart/form-data">
+									<div class="row">
+										
+										<div class="col-md-6">
+											<div class="form-group">
+												<label class="label" for="Name">Name</label>
+												<input asp-for="Name" type="text" class="form-control" name="Name" id="Name" placeholder="Name">
+											</div>
+										</div>
+										
+										<br><br>
+										<div class="col-md-6">
+											<div class="form-group">
+												<label asp-for="NationalIdPhoto" class="control-label"></label>
+												<input asp-for="NationalIdPhoto" class="form-control" type="file" name="img_file" />
+											</div>
+										</div>
+										<div class="col-md-12">
+											<div class="form-group">
+												<label class="label" for="PhoneNo">Phone Number</label>
+												<input asp-for="PhoneNo" type="tel" class="form-control" name="PhoneNo" id="Phone" placeholder="Phone Number">
+											</div>
+										</div>
+										<div class="col-md-12">
+											<div class="form-group">
+												<label class="label" for="NationalId">National ID</label>
+												<input asp-for="NationalId" type="text" class="form-control" name="NationalId" id="NationalId" placeholder="National ID">
+											</div>
+										</div>
+										<div class="col-md-12">
+											<div class="form-group">
+												<label class="label" for="Gender">Gender</label>
+												<select name="Gender" class="form-control" style="width:300px">
+													<option selected disabled></option>
+													<option>Male</option>
+													<option>Female</option>
+
+												</select>
+											</div>
+										</div>
+										
+										<div class="col-md-12">
+											<div class="form-group">
+												<label class="label" for="Email">Email Address</label>
+												<input asp-for="Email" type="email" class="form-control" name="Email" id="Email" placeholder="Email">
+											</div>
+										</div>
+										<div class="col-md-12">
+											<div class="form-group">
+												<label class="label" for="Password">Password</label>
+												<input asp-for = "Password" type="Password" class="form-control" name="Password" id="Password" placeholder="Password">
+											</div>
+										</div>
+
+										<div class="col-md-12">
+											<div class="form-group">
+												<br>
+												<input type="submit" value="submit" class="btn btn-primary">
+												<div class="submitting"></div>
+
+											</div>
+										</div>
+										
+
+
+									</div>
+
+								</form>
+								
+							</div> 
+						</div>
+					</div>
+				</div>
+			</div>
+		</div>
+	</div>
+</section>
